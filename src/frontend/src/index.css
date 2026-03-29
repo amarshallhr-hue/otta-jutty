@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+    --background: 0.96 0.005 270;
+    --foreground: 0.13 0.02 270;
+    --card: 1 0 0;
+    --card-foreground: 0.13 0.02 270;
+    --popover: 1 0 0;
+    --popover-foreground: 0.13 0.02 270;
+    --primary: 0.6 0.22 340;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.95 0.03 340;
+    --secondary-foreground: 0.4 0.15 340;
+    --muted: 0.95 0.01 270;
+    --muted-foreground: 0.5 0.02 270;
+    --accent: 0.9 0.08 340;
+    --accent-foreground: 0.4 0.15 340;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    --border: 0.9 0.01 270;
+    --input: 0.9 0.01 270;
+    --ring: 0.6 0.22 340;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.205 0 0;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      #ff8a2a 0%,
+      #ff3d7a 30%,
+      #d946ef 60%,
+      #7c3aed 80%,
+      #3b82f6 100%
+    );
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #ff8a2a, #ff3d7a, #d946ef, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-bubble {
+    background: linear-gradient(135deg, #ff8a2a, #ff3d7a);
+  }
+  .chat-bubble-partner {
+    background: #2f7cf6;
+    color: white;
+  }
+  .theme-pink .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      #ff8a2a 0%,
+      #ff3d7a 30%,
+      #d946ef 60%,
+      #7c3aed 80%,
+      #3b82f6 100%
+    );
+  }
+  .theme-purple .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      #7c3aed 0%,
+      #9333ea 40%,
+      #c026d3 70%,
+      #db2777 100%
+    );
+  }
+  .theme-ocean .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      #0ea5e9 0%,
+      #06b6d4 30%,
+      #10b981 60%,
+      #3b82f6 100%
+    );
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .animated-gradient {
+    background: linear-gradient(
+      270deg,
+      #ff8a2a,
+      #ff3d7a,
+      #d946ef,
+      #7c3aed,
+      #3b82f6
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 6s ease infinite;
+  }
+  .theme-purple .animated-gradient {
+    background: linear-gradient(
+      270deg,
+      #7c3aed,
+      #9333ea,
+      #c026d3,
+      #db2777,
+      #ec4899
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 6s ease infinite;
+  }
+  .theme-ocean .animated-gradient {
+    background: linear-gradient(
+      270deg,
+      #0ea5e9,
+      #06b6d4,
+      #10b981,
+      #3b82f6,
+      #6366f1
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  .app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    background: oklch(var(--background));
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .pill-btn {
+    border-radius: 999px;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(min(480px, 100vw) - 32px);
+    z-index: 50;
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-slide-in {
+    animation: fadeSlideIn 0.3s ease forwards;
+  }
+}
