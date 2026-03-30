@@ -25,9 +25,11 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
+      - uses: actions/deploy-pages@v5
+      
         with:
           node-version: 20
           registry-url:  https://npm.pkg.github.com/
