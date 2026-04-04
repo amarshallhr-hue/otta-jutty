@@ -1,0 +1,28 @@
+name: Node.js CI
+
+# This triggers the "run" every time you push code to the 'main' branch
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # You can change this to 18, 22, etc.
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run the project/tests
+      run: npm test
